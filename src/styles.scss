@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+  font-family: 'BeaufortforLOL';
+  src: url('./assets/fonts/BeaufortforLOL-Regular.ttf'); /* IE9 Compat Modes */
+}
+

@@ -1,0 +1,23 @@
+<header class="bg-blue-7 p-2 flex items-center h-14 flex justify-between shadow-2xl sticky top-0 z-10">
+  <div class="flex items-center h-full">
+    <img class="h-full" src="../assets/images/LOL_Icon_Rendered_Hi-Res-NoRing.png" alt="">
+    <ul class="flex items-center">
+      <li class="text-grey-1 bold px-4 text-lg font-extrabold">HOME</li>
+      <li class="text-grey-1 bold px-4 text-lg font-extrabold">FAVORITES</li>
+    </ul>
+  </div>
+  <div class="text-grey-1 bold px-4 text-lg font-extrabold flex items-center">
+    <div class="px-2">
+      <select [(ngModel)]="langSelect" (change)="onChangeLanguage()"
+        class="bg-blue-6 border border-gold-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option *ngFor="let lang of languages()" [value]="lang">{{lang}}</option>
+      </select>
+    </div>
+    <div class="px-2">
+      <select [(ngModel)]="versSelect" (change)="onChangeVersion()"
+        class="bg-blue-6 border border-gold-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option *ngFor="let vers of versions()" [value]="vers">{{vers}}</option>
+      </select>
+    </div>
+  </div>
+</header>

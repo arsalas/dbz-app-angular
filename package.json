@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.1.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
+    "@ngneat/query": "^1.0.0-beta.19",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -26,6 +27,7 @@
     "@angular-devkit/build-angular": "^16.1.0",
     "@angular/cli": "~16.1.0",
     "@angular/compiler-cli": "^16.1.0",
+    "@tanstack/eslint-plugin-query": "^4.29.9",
     "@types/jasmine": "~4.3.0",
     "autoprefixer": "^10.4.14",
     "jasmine-core": "~4.6.0",

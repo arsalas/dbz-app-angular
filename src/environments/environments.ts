@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://unofficialdbzapi.cyclic.app/api',
+  lang: 'es_ES',
+  version: '13.13.1',
+  apiUrl: 'http://ddragon.leagueoflegends.com',
 };

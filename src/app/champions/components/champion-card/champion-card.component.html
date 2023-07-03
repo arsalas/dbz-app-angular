@@ -1,0 +1,33 @@
+<div *ngIf="champion"
+  class="relative duration-300 cursor-pointer border rounded-lg shadow none animate__animated border-gold-7 hover:border-gold-1 text-grey-1"
+  lazyLoad>
+  <!-- <a href="#"> -->
+  <img class="rounded-lg" [src]="champion.id | image:'loading'" alt="" />
+  <div
+    class="rounded-lg  duration-500 absolute bottom-0 left-0 top-0 right-0 bg-blue-7/80 text-center flex justify-between flex-col p-2 opacity-0 hover:opacity-100 ">
+
+    <header>
+
+      <h1 class="text-3xl font-extrabold">
+        {{champion.name}}
+      </h1>
+      <h2 class="text-lg font-semibold">
+
+        {{champion.title}}
+      </h2>
+      <div class="flex justify-center mt-2">
+
+        <div *ngFor="let tag of champion.tags"
+          class="ml-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border">
+
+          {{tag}}
+        </div>
+      </div>
+    </header>
+
+    <p class="mt-2 text-ellipsis text-justify">
+
+      {{champion.blurb}}
+    </p>
+  </div>
+</div>

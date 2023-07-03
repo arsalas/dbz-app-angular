@@ -1,6 +1,6 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world! with tailwindcss
-</h1>
-
-
-<router-outlet />
+<main class="bg-blue-7 min-h-screen">
+  <lol-navbar></lol-navbar>
+  <div class="bg-blue-7 p-4" *ngIf="!isLoading()">
+    <router-outlet />
+  </div>
+</main>

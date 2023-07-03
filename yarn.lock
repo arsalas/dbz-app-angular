@@ -1383,6 +1383,14 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@ngneat/query@^1.0.0-beta.19":
+  version "1.0.0-beta.19"
+  resolved "https://registry.yarnpkg.com/@ngneat/query/-/query-1.0.0-beta.19.tgz#1b8d8391d6ff11a03546a86ca0367217d5ee2fd8"
+  integrity sha512-lXE4ZOyAIQ8WN9x2/lTuNIlVDFevOVkhLrA4piTztHyAFv2o1GC0SKEuW08fkIdAvXEkKwOYyJnq/jibmC6+Lw==
+  dependencies:
+    "@tanstack/query-core" "^4.9.0"
+    tslib "^2.3.0"
+
 "@ngtools/webpack@16.1.3":
   version "16.1.3"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-16.1.3.tgz#c8afd2504e1c5dbcc688be897b2f441a7bd91800"
@@ -1492,6 +1500,16 @@
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz#96116f2a912e0c02817345b3c10751069920d553"
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
+
+"@tanstack/eslint-plugin-query@^4.29.9":
+  version "4.29.9"
+  resolved "https://registry.yarnpkg.com/@tanstack/eslint-plugin-query/-/eslint-plugin-query-4.29.9.tgz#1635e7d60975bcff8bf10f1015d77ea3ce3db260"
+  integrity sha512-JlIZcs+zhl/ihta49iIbMCf3E8tSvGDqMIH+oItnYLOzWI7oiujXu7FYgna2E1V79KhR0PaxkPX6jHZLpvacgw==
+
+"@tanstack/query-core@^4.9.0":
+  version "4.29.19"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.29.19.tgz#49ccbd0606633d1e55baf3b91ab7cc7aef411b1d"
+  integrity sha512-uPe1DukeIpIHpQi6UzIgBcXsjjsDaLnc7hF+zLBKnaUlh7jFE/A+P8t4cU4VzKPMFB/C970n/9SxtpO5hmIRgw==
 
 "@tootallnate/once@2":
   version "2.0.0"
