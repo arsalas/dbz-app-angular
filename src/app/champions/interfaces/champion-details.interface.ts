@@ -7,7 +7,7 @@ export interface ChampionResponse {
   version: string;
  }
 
- interface ChampionDetails extends Champion {
+export interface ChampionDetails extends Champion {
   allytips:    string[];
   enemytips:   string[];
   lore:        string;

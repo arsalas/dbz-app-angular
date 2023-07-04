@@ -1,0 +1,76 @@
+<div *ngIf="champion">
+  <h1 class="text-7xl font-black text-grey-1">
+    {{champion.name}}
+  </h1>
+  <h1 class="text-5xl font-normal text-grey-1">
+    {{champion.title}}
+  </h1>
+
+  <h1 class="mt-4 text-3xl font-black text-grey-1">
+    LORE
+  </h1>
+  <p class="text-grey-1 mt-5">
+    {{champion.lore}}
+  </p>
+
+
+
+  <pre class="text-grey-1">
+
+    {{champion.info | json}}
+  </pre>
+  
+  <!-- <pre class="text-grey-1">
+
+    {{champion | json}}
+  </pre> -->
+
+
+  <h1 class="mt-4 mb-2 text-3xl font-black text-grey-1">
+    PASSIVE
+  </h1>
+  <div class="flex">
+    <div class="mr-4 mb-3 w-16 h-16  aspect-square">
+      <img lazyLoad class="rounded-lg " [src]="champion.passive.image.full | image:'passive'" alt="" />
+    </div>
+    <div>
+      <div class="text-1xl font-black text-grey-1">
+        {{champion.passive.name}}
+      </div>
+      <div class="text-grey-1">
+        {{champion.passive.description}}
+      </div>
+    </div>
+  </div>
+  <h1 class="mt-4 mb-2 text-3xl font-black text-grey-1">
+    SPELLS
+  </h1>
+  <div *ngFor="let spell of champion.spells" class="flex">
+    <div class="mr-4 mb-3 w-16 h-16  aspect-square">
+      <img lazyLoad class="rounded-lg " [src]="spell.image.full | image:'spell'" alt="" />
+    </div>
+    <div>
+      <div class="text-1xl font-black text-grey-1">
+        {{spell.name}}
+      </div>
+      <div class="text-grey-1">
+        {{spell.description}}
+      </div>
+    </div>
+  </div>
+
+  <h1 class="mt-4 text-3xl font-black text-grey-1">
+    SKINS
+  </h1>
+  <div class="mt-2 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+
+    <img lazyLoad class="rounded-lg " *ngFor="let skin of champion.skins" [src]="champion.id | image:'splash':skin.num"
+      alt="" />
+  </div>
+
+
+
+</div>
+<pre class="text-gold-1">
+  <!-- {{champion | json}} -->
+</pre>

@@ -11,6 +11,7 @@ import { UseQuery } from '@ngneat/query';
 
 import { environment } from 'src/environments/environments';
 import { ChampionsResponse, Champions } from '../interfaces/champion.interface';
+import { ChampionResponse } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,16 @@ export class ChampionsService {
         `${
           this.baseUrl
         }/cdn/${this.version()}/data/${this.language()}/champion.json`
+      )
+    ).result$;
+  }
+
+  getChampion(champion: string) {
+    return this.useQuery(['championDetails'], () =>
+      this.http.get<ChampionResponse>(
+        `${
+          this.baseUrl
+        }/cdn/${this.version()}/data/${this.language()}/champion/${champion}.json`
       )
     ).result$;
   }

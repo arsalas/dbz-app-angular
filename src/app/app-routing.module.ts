@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [],
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+    loadChildren: () => import('./champions/champions.module').then((m) => m.ChampionsModule),
   },
   {
     path: '**',
