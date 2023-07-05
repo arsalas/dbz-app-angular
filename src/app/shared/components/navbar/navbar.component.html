@@ -5,19 +5,26 @@
       <li class="text-grey-1 bold px-4 text-lg font-extrabold">
         <a routerLink="/">CHAMPIONS</a>
       </li>
-      <li class="text-grey-1 bold px-4 text-lg font-extrabold">FAVORITES</li>
+      <li class="text-grey-1 bold px-4 text-lg font-extrabold">
+        <input [(ngModel)]="nameFilter" (input)="onInput()" type="text" placeholder="Search..."
+          class="bg-blue-6 border border-gold-2 text-gray-1 text-sm rounded-lg focus:ring-gold-3 focus:border-gold-3 block w-full p-2 placeholder-grey-2">
+      </li>
     </ul>
   </div>
   <div class="text-grey-1 bold px-4 text-lg font-extrabold flex items-center">
+
+
+
+
     <div class="px-2">
       <select [(ngModel)]="langSelect" (change)="onChangeLanguage()"
-        class="bg-blue-6 border border-gold-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        class="bg-blue-6 border border-gold-2 text-gray-1 text-sm rounded-lg focus:ring-gold-3 focus:border-gold-3 block w-full p-2 placeholder-grey-2">
         <option *ngFor="let lang of languages()" [value]="lang">{{lang}}</option>
       </select>
     </div>
     <div class="px-2">
       <select [(ngModel)]="versSelect" (change)="onChangeVersion()"
-        class="bg-blue-6 border border-gold-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        class="bg-blue-6 border border-gold-2 text-gray-1 text-sm rounded-lg focus:ring-gold-3 focus:border-gold-3 block w-full p-2 placeholder-grey-2">
         <option *ngFor="let vers of versions()" [value]="vers">{{vers}}</option>
       </select>
     </div>

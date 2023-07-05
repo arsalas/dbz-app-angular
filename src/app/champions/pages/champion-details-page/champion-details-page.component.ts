@@ -14,15 +14,23 @@ export class ChampionDetailsPageComponent implements OnInit {
 
   champion?: ChampionDetails;
   id?: string;
+  skinSelected = 0;
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
     this.route.params.subscribe((params) => {
       this.id = params['id'];
+      console.log({ params });
       this.championsService.getChampion(this.id!).subscribe((res) => {
         if (res.isFetched) {
-          this.champion = res.data?.data[this.id!]
+          this.champion = res.data?.data[this.id!];
         }
       });
     });
+  }
+
+  changeBackgroundImage(skin: number) {
+    this.skinSelected = skin;
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit, inject, computed, signal } from '@angular/core';
 import { ChampionsService } from 'src/app/champions/services/champions.service';
+import { ChampionsStore } from '../../store/champions.store';
+import { Champion } from '../../interfaces';
 
 @Component({
   selector: 'lol-champions-list-page',
@@ -8,9 +10,18 @@ import { ChampionsService } from 'src/app/champions/services/champions.service';
 })
 export class ChampionsListPageComponent implements OnInit {
   private championsService = inject(ChampionsService);
-
+  private championsStore = inject(ChampionsStore);
   private _isLoading = signal<boolean>(true);
-  public champions = computed(() => this.championsService.champions());
+
+  champions = computed<Champion[]>(() =>
+    this.championsStore
+      .champions()
+      .filter((champ) =>
+        champ.name
+          .toLowerCase()
+          .includes(this.championsStore.filter().toLowerCase())
+      )
+  );
 
   public isLoading = computed(() => this._isLoading());
 

@@ -10,8 +10,9 @@ import { HttpClient } from '@angular/common/http';
 import { UseQuery } from '@ngneat/query';
 
 import { environment } from 'src/environments/environments';
-import { ChampionsResponse, Champions } from '../interfaces/champion.interface';
+import { ChampionsResponse, Champion } from '../interfaces/champion.interface';
 import { ChampionResponse } from '../interfaces';
+import { ChampionsStore } from '../store/champions.store';
 
 @Injectable({
   providedIn: 'root',
@@ -19,20 +20,9 @@ import { ChampionResponse } from '../interfaces';
 export class ChampionsService {
   private http = inject(HttpClient);
   private useQuery = inject(UseQuery);
+  private championsStore = inject(ChampionsStore);
 
   private readonly baseUrl: string = environment.apiUrl;
-
-  private _languages = signal<string[]>([]);
-  private _versions = signal<string[]>([]);
-  private _language = signal<string>('es_ES');
-  private _version = signal<string>('13.13.1');
-  private _champions = signal<Champions | undefined>(undefined);
-
-  public languages = computed(() => this._languages());
-  public versions = computed(() => this._versions());
-  public language = computed(() => this._language());
-  public version = computed(() => this._version());
-  public champions = computed(() => this._champions());
 
   constructor() {}
 
@@ -41,7 +31,7 @@ export class ChampionsService {
       this.http.get<ChampionsResponse>(
         `${
           this.baseUrl
-        }/cdn/${this.version()}/data/${this.language()}/champion.json`
+        }/cdn/${this.championsStore.version()}/data/${this.championsStore.language()}/champion.json`
       )
     ).result$;
   }
@@ -51,7 +41,7 @@ export class ChampionsService {
       this.http.get<ChampionResponse>(
         `${
           this.baseUrl
-        }/cdn/${this.version()}/data/${this.language()}/champion/${champion}.json`
+        }/cdn/${this.championsStore.version()}/data/${this.championsStore.language()}/champion/${champion}.json`
       )
     ).result$;
   }
@@ -68,34 +58,40 @@ export class ChampionsService {
     ).result$;
   }
 
-  setChampions(champions: Champions) {
-    this._champions.set(champions);
+  setChampions(champions: Champion[]) {
+    this.championsStore.setChampions(champions);
   }
 
   setLanguages(languages: string[]) {
-    this._languages.set(languages);
+    this.championsStore.setLanguages(languages);
   }
 
   setVersions(versions: string[]) {
-    this._versions.set(versions);
-    if (this._versions().length > 0) {
-      this._version.set(this._versions()[0]);
-    }
+    this.championsStore.setVersions(versions);
   }
 
   setLanguage(lang: string) {
-    this._language.set(lang);
+    this.championsStore.setLanguage(lang);
+    this.fetchData();
   }
 
   setVersion(version: string) {
-    this._version.set(version);
+    this.championsStore.setVersion(version);
+    this.fetchData();
   }
 
   fetchData(isLoading?: WritableSignal<boolean>) {
     this.getChampions().subscribe((response) => {
       if (!response.isError && response.data) {
         if (isLoading) isLoading.set(response.isLoading);
-        this.setChampions(response.data.data);
+        const champions = [];
+        const object = response.data.data;
+        for (const key in object) {
+          if (Object.prototype.hasOwnProperty.call(object, key)) {
+            champions.push(object[key]);
+          }
+        }
+        this.championsStore.setChampions(champions);
       }
     });
   }
