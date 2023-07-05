@@ -5,7 +5,8 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [],
-    loadChildren: () => import('./champions/champions.module').then((m) => m.ChampionsModule),
+    loadChildren: () =>
+      import('./champions/champions.module').then((m) => m.ChampionsModule),
   },
   {
     path: '**',
@@ -14,7 +15,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      useHash: true,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dbz-app:build:production"
+              "browserTarget": "lol-app:build:production"
             },
             "development": {
-              "browserTarget": "dbz-app:build:development"
+              "browserTarget": "lol-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dbz-app:build"
+            "browserTarget": "lol-app:build"
           }
         },
         "test": {
